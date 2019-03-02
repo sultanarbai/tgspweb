@@ -15,13 +15,38 @@ if (isset($_POST["cari"])) {
 <!DOCTYPE html>
 <html>
 <head>
-	<title>halaman adnmio</title>
+	<title>halaman admin</title>
+	<style>
+		body {
+			background-color: lightgreen;
+		}
+	.log {
+	position: absolute;
+	top: 120%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	width: 400px;
+	padding: 50px;
+	background: rgba(0,0,0,.8);
+	box-sizing: border-box;
+	box-shadow: 0 20px 30px rgba(0,0,0,.9);
+	border-radius: 10px;
+	color: silver;
+		}	
+	th {
+		color: yellow;
+		font-style: italic;
+	}	
+
+	
+	
+	</style>
 </head>
 <body>
 
 	<h1>daftar mahasiswa</h1>
 
-	<a href="tambah.php">tambah data mahasiswa</a>
+	<a href="tambah.php" style="color: red;">tambah data mahasiswa</a>
 
 
 	<br><br>
@@ -33,7 +58,7 @@ if (isset($_POST["cari"])) {
 	</form>
 <br>
 
-	<table border="1" cellspacing="0" cellpadding="10">
+	<table border="1" cellspacing="0" cellpadding="10" class="log">
 
 		<tr>
 			<th>no.</th>
@@ -66,6 +91,7 @@ if (isset($_POST["cari"])) {
 		
 
 	</table>
+
 
 </body>
 </html>

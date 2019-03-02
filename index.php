@@ -8,7 +8,18 @@ if( !isset($_SESSION["login"]) ) {
 }
 
 require 'function.php';
-$mahasiswa = query("SELECT * FROM mahasiswa ");
+
+//pagination
+//konfigurasi
+$jmldataperhalaman = 5;
+$jumlahdata = count(query("SELECT * FROM mahasiswa"));
+$jumlahhalaman = ceil($jumlahdata / $jmldataperhalaman);
+$halamanaktif = (isset($_GET["halaman"]) ) ? $_GET["halaman"] : 1;
+
+$awaldt = ($jmldataperhalaman * $halamanaktif ) - $jmldataperhalaman;
+
+
+$mahasiswa = query("SELECT * FROM mahasiswa LIMIT $awaldt, $jmldataperhalaman  ");
 
 
 // tommbol cari ditekan
@@ -23,6 +34,11 @@ if (isset($_POST["cari"])) {
 <html>
 <head>
 	<title>halaman adnmio</title>
+	<style>
+		body {
+			background-color: #f0ad4e;
+		}
+	</style>
 </head>
 <body>
 	<br>
@@ -42,6 +58,33 @@ if (isset($_POST["cari"])) {
 		<input type="text" name="keyword" size="50" autofocus placeholder="masukkan data yg ingin dicari" autocomplete="off">
 		<button type="submit" name="cari" >cari!</button>
 	</form>
+<br>
+
+
+
+<?php if( $halamanaktif > 1) : ?>
+<a href="?halaman=<?php echo $halamanaktif - 1; ?>">&laquo;</a>
+<?php endif; ?>
+
+
+
+<?php for( $i = 1; $i <= $jumlahhalaman; $i++ ) : ?>
+	<?php if($i == $halamanaktif ) : ?>
+	<a href="?halaman=<?php echo $i; ?>" style="font-weight: bold; color: red;"><?php echo $i; ?></a>
+	<?php else : ?>
+		<a href="?halaman=<?php echo $i; ?>"><?php echo $i; ?></a>
+	<?php endif; ?>
+<?php endfor; ?>
+
+
+
+<?php if( $halamanaktif < $jumlahhalaman) : ?>
+	<a href="?halaman=<?php echo $halamanaktif + 1; ?>">&raquo;</a>
+<?php endif; ?>
+
+
+
+
 <br>
 
 	<table border="1" cellspacing="0" cellpadding="10">
