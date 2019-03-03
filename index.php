@@ -22,9 +22,13 @@ $awaldt = ($jmldataperhalaman * $halamanaktif ) - $jmldataperhalaman;
 $mahasiswa = query("SELECT * FROM mahasiswa LIMIT $awaldt, $jmldataperhalaman  ");
 
 
+
+
+
 // tommbol cari ditekan
 if (isset($_POST["cari"])) {
 	$mahasiswa = cari($_POST["keyword"]);
+
 }
 
  ?>
@@ -33,7 +37,7 @@ if (isset($_POST["cari"])) {
 <!DOCTYPE html>
 <html>
 <head>
-	<title>halaman adnmio</title>
+	<title>halaman admin</title>
 	<style>
 		body {
 			background-color: #f0ad4e;
@@ -41,6 +45,7 @@ if (isset($_POST["cari"])) {
 	</style>
 </head>
 <body>
+
 	<br>
 	<a href="logout.php"><button>logout!</button></a><br><br>
 	<br><br>

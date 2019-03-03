@@ -70,18 +70,28 @@ if (isset($_POST["register"])) {
 		<ul>
 			<li>
 				<label for="username">username :</label>
-				<input type="text" name="username" id="username" autocomplete="off">
+				<input type="text" name="username" id="username" autocomplete="off" required>
 			</li>
 			<li>
 				<label for="password">password :</label>
-				<input type="password" name="password" id="password">
+				<input type="password" name="password" id="password" required>
 			</li>
 			<li>
 				<label for="password2">konfirmasi password :</label>
 				<input type="password" name="password2" id="password2">
 			</li>
+			<li>
+				<label for="level">level :</label>
+				<select name="level" id="level" required>
+					<option value="">pilih level</option>
+					<option value="admin">admin</option>
+					<option value="dosen">dosen</option>
+					<option value="mahasiswa">mahasiswa</option>
+					
+				</select>
+			</li>
 			<li><img src="chapta.php"> </li>
-			<li>: <input type="text" placeholder="masukan kode captcha" name="kode" autocomplete="off">
+			<li>: <input type="text" placeholder="masukan kode captcha" name="kode" autocomplete="off" required>
 				<span class="error">*</span></li>
 			<br>
 			<li>

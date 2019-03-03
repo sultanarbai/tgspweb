@@ -31,16 +31,17 @@ if ( isset($_POST["login"]) ) {
 	$password = $_POST["password"];
 
 	$result = mysqli_query($conn, "SELECT * FROM user WHERE username = '$username'");
-
+	// $result2 = mysql_query($conn, "SELECT ")
 	//cek username
 	if( mysqli_num_rows($result) === 1 ) {
-
+		
+	
 		//cek password
 		$row = mysqli_fetch_assoc($result);
 		if( password_verify($password, $row["password"]) ) {
 			//set sesion
 			$_SESSION["login"] = true;
-
+			
 			//cek remember nyo
 			if ( isset($_POST['remember']) ) {
 				//buat cokies nyo
@@ -49,9 +50,12 @@ if ( isset($_POST["login"]) ) {
 
 			}
 
+
 			header("Location: index.php");
 			exit;
+		
 		}
+	    
 	}
 
 	$error = true;

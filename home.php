@@ -27,16 +27,23 @@ if (isset($_POST["cari"])) {
 	transform: translate(-50%,-50%);
 	width: 400px;
 	padding: 50px;
-	background: rgba(0,0,0,.8);
+	background: rgba(48,70,72,.9);
 	box-sizing: border-box;
-	box-shadow: 0 20px 30px rgba(0,0,0,.9);
+	box-shadow: 0 20px 30px rgba(8,56,247,.9);
 	border-radius: 10px;
 	color: silver;
+	
 		}	
 	th {
 		color: yellow;
 		font-style: italic;
 	}	
+	a:-webkit-any-link {
+    color: #75e605;
+    cursor: pointer;
+    text-decoration: initial;
+    
+}
 
 	
 	
