@@ -20,8 +20,10 @@ if( isset($_COOKIE['id']) && isset($_COOKIE['key']) ) {
 }
 
 if( isset($_SESSION["login"]) ) {
-	header("Location: index.php");
+	if ( isset($_SESSION["level"]) ) {
+		header("Location: index.php");
 	exit;
+	}
 }
 
 
@@ -29,8 +31,9 @@ if ( isset($_POST["login"]) ) {
 
 	$username = $_POST["username"];
 	$password = $_POST["password"];
+	$level = $_POST["level"];
 
-	$result = mysqli_query($conn, "SELECT * FROM user WHERE username = '$username'");
+	$result = mysqli_query($conn, "SELECT * FROM user WHERE username = '$username' AND level = '$level'");
 	// $result2 = mysql_query($conn, "SELECT ")
 	//cek username
 	if( mysqli_num_rows($result) === 1 ) {
@@ -41,6 +44,7 @@ if ( isset($_POST["login"]) ) {
 		if( password_verify($password, $row["password"]) ) {
 			//set sesion
 			$_SESSION["login"] = true;
+			$_SESSION["level"] = $row["level"];
 			
 			//cek remember nyo
 			if ( isset($_POST['remember']) ) {
@@ -90,9 +94,9 @@ if ( isset($_POST["login"]) ) {
 	transform: translate(-50%,-50%);
 	width: 400px;
 	padding: 40px;
-	background: rgba(0,0,0,.8);
+	background: rgba(0,0,0,.9);
 	box-sizing: border-box;
-	box-shadow: 0 15px 25px rgba(0,0,0,.5);
+	box-shadow: 0 15px 25px rgba(0,0,0,.9);
 	border-radius: 10px;
 		}
 	</style>
@@ -115,6 +119,16 @@ if ( isset($_POST["login"]) ) {
 			<li>
 				<label for="password">Password :</label>
 				<input type="password" name="password" id="password">
+			</li>
+			<li>
+				<label for="level">level :</label>
+				<select name="level" id="level" required>
+					<option value="">pilih level</option>
+					<option value="admin">admin</option>
+					<option value="dosen">dosen</option>
+					<option value="mahasiswa">mahasiswa</option>
+					
+				</select>
 			</li>
 			<li>
 				<label for="remember">remember me :</label>

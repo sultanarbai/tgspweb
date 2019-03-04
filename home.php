@@ -22,9 +22,9 @@ if (isset($_POST["cari"])) {
 		}
 	.log {
 	position: absolute;
-	top: 120%;
-	left: 50%;
-	transform: translate(-50%,-50%);
+	top: 800px;
+	left: 600px;
+	transform: translate(-400px,-600px);
 	width: 400px;
 	padding: 50px;
 	background: rgba(48,70,72,.9);
