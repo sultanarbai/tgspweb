@@ -167,11 +167,7 @@ if (isset($_POST["cari"])) {
                      </div>
 <div class="breadcrumb">
          <ul>
-               <li class="home"><a href="?act=main"><strong>Halaman Depan</strong></a>
-		
-               <li class="home"><a href="?act=daftar_mahasiswa"><strong>Mahasiswa</strong></a>
-		
-               <li><a href="user_manual.pdf" target="_blank"><strong>Panduan</strong></a>
+
                	<li class="home"><form action="" method="post" class="caru">
 		
 		<input type="text" name="keyword" size="50" autofocus placeholder="masukkan data yg ingin dicari" autocomplete="off">
@@ -284,11 +280,7 @@ if (isset($_POST["cari"])) {
                      </div>
 <div class="breadcrumb">
          <ul>
-               <li class="home"><a href="?act=main"><strong>Halaman Depan</strong></a>
-		
-               <li class="home"><a href="?act=daftar_mahasiswa"><strong>Mahasiswa</strong></a>
-		
-               <li><a href="user_manual.pdf" target="_blank"><strong>Panduan</strong></a>
+
                	<li class="home"><form action="" method="post" class="caru">
 		
 		<input type="text" name="keyword" size="50" autofocus placeholder="masukkan data yg ingin dicari" autocomplete="off">
@@ -397,102 +389,7 @@ if (isset($_POST["cari"])) {
 
 
 
-	<?php elseif ($_SESSION["level"] === 'mahasiswa') : ?>
-
-			<!--Header-->
-      <div id="header">
-	  <img src="https://akademik.unsri.ac.id/portal02/images/simak_banner.jpg" alt="" />
-      </div>
-      <!--Navigation-->
-      <div id="navigation">
-		          <div class="navigation-infobar">
-            Program Studi : SISTEM INFORMASI         </div>
-<div class="breadcrumb">
-         <ul>
-               <li class="home"><a href="https://akademik.unsri.ac.id/portal02/utama.php"><strong>Halaman Depan</strong></a>
-               <li><a href="http://222.124.194.99/user_manual.pdf" target="_blank"><strong>Panduan</strong></a>
-               <li><a href="https://akademik.unsri.ac.id/portal02/index.php?logout=1"><strong>Logout</strong></a>
-         </ul>
-</div>      </div>
-      <!--End Navigation-->
-
-      <!--Contents-->
-      <table id=content class="layout">
-         <tr>
-            <td align=left valign=top width=185 class="layout" style="height:600px;width:185px;overflow:visible">
-               <div id="content">
-                  
-        <div id="sidebar"> 
-          <div class="sidebarContents"> <br />            <table width="180" border="0">
-              <tr> 
-			                  <td width="33" height="34" valign="top">
-								<img src="https://akademik.unsri.ac.id/images/foto_mhs/2018/09031181823009.jpg" alt='' width="75px">
-						  </td>
-                <td width="147" align="left" valign="top"><font size="2pt" face="Tahoma, Arial, sans-serif" color="#003300">
-				  <strong>SULTAN ARBA'I</strong></font><br />
-                  <font size="-3" face="Tahoma, Arial, sans-serif" color="#003300">
-				  <i>Operation Date:<br /> 
-				  06 Maret 2019                  </i>
-				  </font>
-				  </td>
-              </tr>
-            </table>
-<div class="pageBar"></div>
-			            <h3><b>Menu Utama<b></h3>
-            <ul>
-              <li> <a href="https://akademik.unsri.ac.id/portal02/">&raquo; Halaman Depan</a></li>
-              <li> <a href="https://akademik.unsri.ac.id/portal02/module/data_pribadi/edit.php">&raquo; Data Pribadi</a></li>
-              <li> <a href="https://akademik.unsri.ac.id/portal02/module/data_akademik/utama.php">&raquo; Data Akademik</a>
-			  	  
-			  </li>
-
-		
-              <li> <a href="https://akademik.unsri.ac.id/portal02/module/suliet/">&raquo; SULIET</a> </li>
-              <li> <a href="https://akademik.unsri.ac.id/portal02/module/kkn/">&raquo; Pendaftaran KKN</a> </li>
-              <li> <a href="https://akademik.unsri.ac.id/portal02/module/password/update.php">&raquo; Setting Password</a> </li>
-
-
-            </ul>
-
-
-
-            <ul class="level-2">
-              <font size="1"><small>Universitas Sriwijaya<br />
-              Academic Information System v.2.5 <br /><br />Copyright &copy; 2008 <br > By Fasilkom Unsri</small></font> 
-            </ul>
-          </div>
-          <!-- end of sidebar -->
-        </div>
-               </div>
-            </td>
-            <td align=left valign=top class="layout">
-               <div id="subcontent"> 
-        <div class="subcontent-element"> 
-                     
-          <div class="subcontent-navigation">Home</div>
-
-
-
-
-
-
-	<div align="center">
-      <br />
-
-      <h1>SISTEM INFORMASI AKADEMIK</h1>
-      <h2>FAKULTAS ILMU KOMPUTER - UNIVERSITAS SRIWIJAYA</h2>
-   </div>
-
-
-   <p> Selamat datang, </p>
-   <p>Sistem ini adalah Sistem Informasi Akademik untuk mahasiswa Universitas Sriwijaya yang digunakan untuk mengelola data administrasi akademiknya di Fakultas Fasilkom - Universitas Sriwijaya</p>
-		  <div class="listview_common">
-		     <a href="module/data_pribadi/edit.php"><img src="https://akademik.unsri.ac.id/portal02/images/icons/pribadi.gif" alt="" />Data Pribadi</a>
-		     <a href="module/data_akademik/utama.php"><img src="https://akademik.unsri.ac.id/portal02/images/icons/akademik.jpg" alt="" />Data Akademik</a>
-		     <a href="module/password/update.php"><img src="https://akademik.unsri.ac.id/portal02/images/icons/password.jpg" alt="" />Setting Password</a>			
-	      </div>
-
-
+	
 
 
 <?php endif; ?>

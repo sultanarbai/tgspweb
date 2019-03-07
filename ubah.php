@@ -43,6 +43,7 @@ else
 <html>
 <head>
 	<title>ubah data</title>
+	<link rel="stylesheet" href="stil.css">
 </head>
 <body>
 

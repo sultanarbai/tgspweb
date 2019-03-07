@@ -99,6 +99,14 @@ if ( isset($_POST["login"]) ) {
 	box-shadow: 0 15px 25px rgba(0,0,0,.9);
 	border-radius: 10px;
 		}
+	input {
+		border-radius: 5px;
+		background-color: rgba(0,0,0,.0);
+		color: green;
+	}
+	button {
+		border-radius: 7px;
+	}	
 	</style>
 </head>
 <body >
@@ -126,7 +134,7 @@ if ( isset($_POST["login"]) ) {
 					<option value="">pilih level</option>
 					<option value="admin">admin</option>
 					<option value="dosen">dosen</option>
-					<option value="mahasiswa">mahasiswa</option>
+
 					
 				</select>
 			</li>

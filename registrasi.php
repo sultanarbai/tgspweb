@@ -86,7 +86,7 @@ if (isset($_POST["register"])) {
 					<option value="">pilih level</option>
 					<option value="admin">admin</option>
 					<option value="dosen">dosen</option>
-					<option value="mahasiswa">mahasiswa</option>
+					
 					
 				</select>
 			</li>
