@@ -33,3 +33,7 @@ body{
 	button {
 		border-radius: 7px;
 	}
+	.caru input {
+		border-radius: 5px;
+		background-color: rgba(0,0,0,.0);
+		color: white;

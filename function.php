@@ -30,16 +30,45 @@ function tambah($data) {
 		return false;
 	}
 
+//ambil tanggal
+date_default_timezone_set('Asia/Jakarta');
+
+
+	$tanggal=date('l, d-m-Y h:i:sa');
+    echo $tanggal;
+
+$name_valid = true;
+$nim_valid = true;
+$email_valid = true;
+
+    	$nama = trim($data['nama']);
+		$nim = trim($data['nim']);
+		$email = trim($data['email']);
+
+		if(!preg_match("/^[a-zA-Z ]*$/",$nama)){
+			$name_valid = false;
+			$name_valid_msg = "Hanya huruf dan spasi yang diijinkan.<br>";
+				}
+		elseif(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+		  		$email_valid = false;
+		      $emailErr = "Invalid email format"; 
+		    	}
+		elseif (!preg_match("/^[0-9 ]*$/",$nim)) {
+			    $nim_valid = false;
+			      $nimErr = "Only Numbers allowed"; 
+			    }    
+
+
+if (($name_valid != false) and ($nim_valid != false) and ($email_valid != false) ) {
 $query = " INSERT  INTO mahasiswa
 			VALUES
-			('', '$nama', '$nim', '$email', '$jurusan', '$gambar')
+			('', '$nama', '$nim', '$email', '$jurusan', '$gambar', '$tanggal')
 			";
 
 			mysqli_query($conn, $query);
 
 			return mysqli_affected_rows($conn);
-
-
+}
 }
 
 function upload() {
@@ -113,12 +142,40 @@ if ($_FILES['gambar']['error'] === 4) {
 	$gambar = upload();
 }
 
+date_default_timezone_set('Asia/Jakarta');
+
+
+	$tanggal=date('l, d-m-Y h:i:sa');
+    echo $tanggal;
+
+    $name_valid = true;
+$nim_valid = true;
+$email_valid = true;
+
+    	$nama = trim($data['nama']);
+		$nim = trim($data['nim']);
+		$email = trim($data['email']);
+
+		if(!preg_match("/^[a-zA-Z ]*$/",$nama)){
+			$name_valid = false;
+			$name_valid_msg = "Hanya huruf dan spasi yang diijinkan.<br>";
+				}
+		elseif(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+		  		$email_valid = false;
+		      $emailErr = "Invalid email format"; 
+		    	}
+		elseif (!preg_match("/^[0-9 ]*$/",$nim)) {
+			    $nim_valid = false;
+			      $nimErr = "Only Numbers allowed"; 
+			    }
+if (($name_valid != false) and ($nim_valid != false) and ($email_valid != false) ) {
 $query = " UPDATE  mahasiswa SET
 				nama = '$nama',
 				nim = '$nim',
 				email = '$email',
 				jurusan = '$jurusan',
-				gambar = '$gambar'
+				gambar = '$gambar',
+				tanggal = '$tanggal'
 				WHERE id = $id
 				";
 			
@@ -126,6 +183,7 @@ $query = " UPDATE  mahasiswa SET
 			mysqli_query($conn, $query);
 
 			return mysqli_affected_rows($conn);
+}
 }
 
 
@@ -180,6 +238,7 @@ function registrasi($data) {
 	return mysqli_affected_rows($conn);
 
 }
+
 
 
 

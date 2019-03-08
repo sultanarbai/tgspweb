@@ -38,6 +38,8 @@ if (isset($_POST["cari"])) {
 <html>
 <head>
 	<title>halaman admin</title>
+	<link href="img/favicon.ico" rel="SHORTCUT ICON" />
+	<link rel="stylesheet" href="stil.css">
 	<style>
 		body {
 			background : url("img/bek.png");
@@ -47,7 +49,7 @@ if (isset($_POST["cari"])) {
 		}
 		.log {
 			position: absolute;
-			top: 1050px;
+			top: 1100px;
 			left: 600px;
 			transform: translate(-375px,-600px);
 			width: 400px;
@@ -72,7 +74,7 @@ if (isset($_POST["cari"])) {
 	width: auto;
 	height: 66px;
 	background-color: #1a304d;
-	background-image: url('../images/replay_header_bg.gif');
+	background-image: url('img/simak_banner.jpg');
 	overflow: hidden;
 }
 
@@ -80,7 +82,7 @@ if (isset($_POST["cari"])) {
 	width: 428px;
 	height: 66px;
 
-	background-image: url('../images/SIKEU_01.gif');
+	background-color: red;
 	background-repeat: no-repeat;
 	float: left;
 }
@@ -148,17 +150,26 @@ if (isset($_POST["cari"])) {
 	height: 100%;
 	background-color: #f8f9f5;
 	margin: 0px;
-	xxbackground-image: url('../images/sia-background.gif');
 	background-repeat: repeat-y;
 	background-position: left;
 }
 .caru {
 		display: inline;
 }
+input::placeholder {
+	color: red;
+
+}
 	</style>
+
 
 </head>
 <body>
+	<!--Header-->
+      <div id="header">
+	  <img src="img/simak_banner.jpg" alt="" />
+      </div>
+
 
 
 <?php if($_SESSION["level"] === 'admin') : ?>
@@ -170,7 +181,7 @@ if (isset($_POST["cari"])) {
 
                	<li class="home"><form action="" method="post" class="caru">
 		
-		<input type="text" name="keyword" size="50" autofocus placeholder="masukkan data yg ingin dicari" autocomplete="off">
+		<input style="color: white;" type="text" name="keyword" size="50" autofocus placeholder="masukkan data yg ingin dicari" autocomplete="off">
 		<button type="submit" name="cari" >cari!</button>
 	</form>
 	<li class="home"><a href="logout.php"><button>logout!</button></a><br><br>
@@ -192,7 +203,9 @@ if (isset($_POST["cari"])) {
 	  <hr size="1px" color="#009900">
 	  <h1>daftar mahasiswa</h1>
 	  <?php if( $halamanaktif > 1) : ?>
+	  	<button>
 <a href="?halaman=<?php echo $halamanaktif - 1; ?>">&laquo;</a>
+</button>
 <?php endif; ?>
 
 
@@ -244,6 +257,7 @@ if (isset($_POST["cari"])) {
 			<th>nim</th>
 			<th>jurusan</th>
 			<th>email</th>
+			<th><i>last update!</i></th>
 		</tr>
 		<?php $i = 1; ?>
 		<?php foreach ($mahasiswa as $row ) :  ?>
@@ -266,6 +280,7 @@ if (isset($_POST["cari"])) {
 			<td><?php echo $row["nim"] ?></td>
 			<td><?php echo $row["jurusan"] ?></td>
 			<td><?php echo $row["email"] ?></td>
+			<td><?php echo $row["tanggal"] ?></td>
 
 		</tr>
 		<?php $i++; ?>

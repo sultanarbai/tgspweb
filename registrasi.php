@@ -18,6 +18,97 @@ if (isset($_POST["register"])) {
 
 
  ?>
+ <?php
+// define variables and set to empty values
+$nameErr = $emailErr = $genderErr = $websiteErr = $usiaErr = $nimErr = $biografiErr = $jurusanErr = "";
+$username = $password = $passErr = $email = $gender = $biografi = $website = $nim = $jurusan = $usia = "";
+
+date_default_timezone_set('Asia/Jakarta');
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  if (empty($_POST["username"])) {
+    $nameErr = "username is required";
+  } else {
+    $username = test_input($_POST["username"]);
+    // check if username only contains letters and whitespace
+    if (!preg_match("/^[a-zA-Z ]*$/",$username)) {
+      $nameErr = "Only letters and white space allowed"; 
+    }
+  }
+  
+  if (empty($_POST["nim"])) {
+    $nimErr = "NIM is required";
+  } else {
+    $nim = test_input($_POST["nim"]);
+    if (!preg_match("/^[0-9 ]*$/",$nim)) {
+      $nimErr = "Only Numbers allowed"; 
+    }
+  } 
+  if (empty($_POST["password"])) {
+    $passErr = "password is required";
+  } else {
+    $nim = test_input($_POST["password"]);
+    if (!preg_match("/^[0-9 ]*$/",$password)) {
+      $nimErr = "Only Numbers allowed"; 
+    }
+  }
+
+  if (empty($_POST["email"])) {
+    $emailErr = "Email is required";
+  } else {
+    $email = test_input($_POST["email"]);
+    // check if e-mail address is well-formed
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+      $emailErr = "Invalid email format"; 
+    }
+  }
+
+  if (empty($_POST["jurusan"])) {
+    $jurusanErr = "Please Select One";
+  } else {
+    $jurusan = test_input($_POST["jurusan"]);
+  }
+
+  if (empty($_POST["gender"])) {
+    $genderErr = "Gender is required";
+  } else {
+    $gender = test_input($_POST["gender"]);
+  }
+
+  if (empty($_POST["usia"])) {
+    $usiaErr = "Age is required";
+  } else {
+    $usia = test_input($_POST["usia"]);
+    if (!preg_match("/^[0-9 ]*$/",$usia)) {
+      $usiaErr = "Only Numbers allowed"; 
+    }
+  }
+    
+  if (empty($_POST["website"])) {
+    $websiteErr = "Website is required";
+  } else {
+    $website = test_input($_POST["website"]);
+    // check if URL address syntax is valid (this regular expression also allows dashes in the URL)
+    if (!preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i",$website)) {
+      $websiteErr = "Invalid URL"; 
+    }
+  }
+
+  if (empty($_POST["biografi"])) {
+    $biografiErr = "Biografi is required";
+  } else {
+    $biografi = test_input($_POST["biografi"]);
+  }
+
+}
+
+function test_input($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
+?>
 
 
 
@@ -71,10 +162,12 @@ if (isset($_POST["register"])) {
 			<li>
 				<label for="username">username :</label>
 				<input type="text" name="username" id="username" autocomplete="off" required>
+				<span class="error">* <?php echo $nameErr;?></span>
 			</li>
 			<li>
 				<label for="password">password :</label>
 				<input type="password" name="password" id="password" required>
+				<span class="error">* <?php echo $passErr;?> </span>
 			</li>
 			<li>
 				<label for="password2">konfirmasi password :</label>
